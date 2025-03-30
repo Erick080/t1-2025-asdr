@@ -1,8 +1,3 @@
 $TRACE_ON
-    { if (a) 
-        if (b)
-           while (d)  
-               a = 1+2+3;
-    }
-
+    int a,b,c;
 

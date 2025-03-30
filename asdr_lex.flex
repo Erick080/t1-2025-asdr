@@ -22,10 +22,14 @@ WHITE_SPACE_CHAR=[\n\r\ \t\b\012]
 "$TRACE_ON"   { yyparser.setDebug(true); }
 "$TRACE_OFF"  { yyparser.setDebug(false); }
 
-"while"	 	{ return AsdrSample.WHILE; }
-"if"		{ return AsdrSample.IF; }
-"else"		{ return AsdrSample.ELSE; }
-"fi"		{ return AsdrSample.FI; }
+"int"   { return AsdrSample.INT;}
+"double" { return AsdrSample.DOUBLE;}
+"boolean" { return AsdrSample.BOOLEAN;}
+"func"  {return AsdrSample.FUNC;}
+"void" {return AsdrSample.VOID;}
+"while" {return AsdrSample.WHILE;}
+"if"    {return AsdrSample.IF;}
+"else"  {return AsdrSample.ELSE;}
 
 [:jletter:][:jletterdigit:]* { return AsdrSample.IDENT; }  
 
@@ -38,6 +42,9 @@ WHITE_SPACE_CHAR=[\n\r\ \t\b\012]
 ")" |
 "+" |
 "-" |
+"," |
+"*" |
+"/" |
 "="    	{ return yytext().charAt(0); } 
 
 

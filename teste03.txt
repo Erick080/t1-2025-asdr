@@ -1,4 +1,2 @@
-$TRACE_ON
 
-    { while (b) a= 34; }
 
