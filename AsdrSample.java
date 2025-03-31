@@ -77,14 +77,21 @@ public class AsdrSample {
  
    RestoIf -> else Cmd
          |     vazio 
-   E --> E + T
-       | E - T
-       | T
+
+   AQUI FOI FEITA A FATORACAO DE E  T
+
+   E --> T EResto             
  
-   T --> T * F
-       | T / F
-       | F    
+   EResto --> + T EResto
+           | - T EResto
+           | vazio
+
+   T --> F TResto  
        
+   TResto --> * F TResto
+           | / F TResto
+           | vazio
+
    F -->  IDENT
        | NUM
        | ( E ) */
@@ -215,6 +222,8 @@ public class AsdrSample {
       if (laToken == ','){
          if (debug)
             System.out.println("ParamList --> Tipo IDENT , ParamList");
+         verifica(',');
+         ParamList();
       }
       else{
          if (debug)
@@ -287,11 +296,55 @@ public class AsdrSample {
    }
 
    private void E() {
-      //TODO
+      if (debug)
+         System.out.println("E --> T EResto");
+      T();
+      EResto();
+   }
+
+   private void EResto(){
+      if (laToken == '+') {
+         if (debug)
+            System.out.println("EResto --> + T EResto");
+         verifica('+');
+         T();
+         EResto();
+      } else if (laToken == '-') {
+         if (debug)
+            System.out.println("EResto --> - T EResto");
+         verifica('-');
+         T();
+         EResto();
+      } else {
+         if (debug)
+            System.out.println("EResto -->  (*vazio*)  ");
+      }
    }
 
    private void T() {
-      //TODO
+      if (debug)
+         System.out.println("T --> F TResto");
+      F();
+      TResto();
+   }
+
+   private void TResto(){
+      if (laToken == '*') {
+         if (debug)
+            System.out.println("TResto --> * F TResto");
+         verifica('*');
+         F();
+         TResto();
+      } else if (laToken == '/') {
+         if (debug)
+            System.out.println("TResto --> / F TResto");
+         verifica('/');
+         F();
+         TResto();
+      } else {
+         if (debug)
+            System.out.println("TResto -->  (*vazio*)  ");
+      }
    }
 
    private void F(){

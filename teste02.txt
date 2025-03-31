@@ -1,3 +1,14 @@
+$TRACE_ON
+int a,b,c;
 
+func int foo(int a, int b){
+    int c;
+    a=34;
+}
 
+double x,y,z;
+
+func void boo(){
+    a=35;
+}
 
