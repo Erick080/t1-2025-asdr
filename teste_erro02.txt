@@ -1,0 +1,7 @@
+$TRACE_ON
+
+func int foo(int a){
+    if () {
+        a = 10;
+    }
+}

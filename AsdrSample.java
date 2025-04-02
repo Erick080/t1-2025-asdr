@@ -1,3 +1,6 @@
+// Eduardo Enes Traunig
+// Erick Branquinho Machado
+
 import java.io.*;
 
 public class AsdrSample {
@@ -368,8 +371,9 @@ public class AsdrSample {
    }
 
    private void verifica(int expected) {
-      if (laToken == expected)
+      if (laToken == expected) {
          laToken = this.yylex();
+      }
       else {
          String expStr, laStr;
 

@@ -1,0 +1,8 @@
+$TRACE_ON
+
+func int foo(int c, int d){
+    while (true) {
+        d = 5;
+        c = d + 5;
+    }
+}

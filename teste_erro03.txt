@@ -1,0 +1,5 @@
+$TRACE_ON
+
+func int foo(int a){
+    a = a+;
+}

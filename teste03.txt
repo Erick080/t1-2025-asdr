@@ -1,6 +1,0 @@
-$TRACE_ON
-
-func int foo(int a, int b){
-    a = (a+b)*a;
-}
-
